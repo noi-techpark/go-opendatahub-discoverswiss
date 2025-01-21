@@ -3,6 +3,8 @@ package mappers
 import (
 	"fmt"
 	"strings"
+
+	"github.com/noi-techpark/go-opendatahub-discoverswiss/models"
 )
 
 
@@ -13,8 +15,8 @@ func mapAdditionalTypeToAccoTypeId(additionalType string) string {
 	return additionalType
 }
 
-func mapLodgingBusinessToAccommodation(lb LodgingBusiness) Accommodation {
-	acco := Accommodation{
+func mapLodgingBusinessToAccommodation(lb models.LodgingBusiness) models.Accommodation {
+	acco := models.Accommodation{
 		Source:    "discoverswiss",
 		Active:    true,
 		Shortname: lb.Name,
@@ -42,7 +44,7 @@ func mapLodgingBusinessToAccommodation(lb LodgingBusiness) Accommodation {
 		},
 	}
 
-	acco.AccoDetail.Language = AccoDetailLanguage{
+	acco.AccoDetail.Language = models.AccoDetailLanguage{
 		Name:        lb.Name,
 		Street:      lb.Address.StreetAddress,
 		Zip:         lb.Address.PostalCode,
