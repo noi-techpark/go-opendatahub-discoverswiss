@@ -8,14 +8,14 @@ import (
 )
 
 
-func mapAdditionalTypeToAccoTypeId(additionalType string) string {
+func MapAdditionalTypeToAccoTypeId(additionalType string) string {
 	if strings.EqualFold(additionalType, "Hotel") {
 		return "HotelPension"
 	}
 	return additionalType
 }
 
-func mapLodgingBusinessToAccommodation(lb models.LodgingBusiness) models.Accommodation {
+func MapLodgingBusinessToAccommodation(lb models.LodgingBusiness) models.Accommodation {
 	acco := models.Accommodation{
 		Source:    "discoverswiss",
 		Active:    true,
@@ -81,7 +81,7 @@ func mapLodgingBusinessToAccommodation(lb models.LodgingBusiness) models.Accommo
 	acco.AccoType = struct {
 		Id string `json:"Id"`
 	}{
-		Id: mapAdditionalTypeToAccoTypeId(lb.StarRating.AdditionalType),
+		Id: MapAdditionalTypeToAccoTypeId(lb.StarRating.AdditionalType),
 	}
 
 	return acco
