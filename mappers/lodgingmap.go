@@ -28,7 +28,7 @@ func MapLodgingBusinessToAccommodation(lb models.LodgingBusiness) models.Accommo
 
 	acco.Mapping.DiscoverSwiss.Id = lb.Identifier
 	acco.LicenseInfo.Author = ""
-	acco.LicenseInfo.License = "TEST" //lb.License	
+	acco.LicenseInfo.License = "RETRY" //lb.License	
 	acco.LicenseInfo.ClosedData = false
 	acco.LicenseInfo.LicenseHolder = "www.discover.swiss"
 
