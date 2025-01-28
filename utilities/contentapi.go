@@ -24,8 +24,10 @@ type RawFilterId struct {
 	} `json:"Items"`
 }
 
-func GetAccomodationIdByRawFilter(id string, url *url.URL) (string, error) {
-	newurl,err := url.Parse(fmt.Sprintf(url.String(), id))
+
+
+func GetAccomodationIdByRawFilter(id string, baseURL string) (string, error) {
+	newurl,err := url.Parse(fmt.Sprintf(baseURL, id))
 	if err != nil {
 		return "", fmt.Errorf("could not parse url: %w", err)
 	}
@@ -85,7 +87,7 @@ func PutContentApi(url *url.URL, token string, payload interface{}, id string) (
 	u := fmt.Sprintf("%s/%s", url.String(), id)
 	slog.Info("PUT URL", "url", u)
 	newurl, err := url.Parse(u)
-	if err != nil {
+	if err != nil { 
 		return "", fmt.Errorf("could not parse url: %w", err)
 	}
 
