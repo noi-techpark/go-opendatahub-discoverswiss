@@ -21,13 +21,16 @@ The primary purpose of this repository is to:
 ```
 .
 ├── models/            # Data structures for both source and target schemas
-│   ├── discover/      # DiscoverSwiss data models
-│   │   └── accomodation.go
-│   └── odh/          # OpenDataHub data models
-│       └── new_model.go
+│   |     
+│   └── accomodation.go   
+│       
 ├── mappers/          # Mapping functions
 │   ├── lodgingmap.go
 │   └── new_mapper.go
+│
+├── utilities/          # Utility functions to interact with content api
+│   |
+│   └── contentapi.go
 ├── go.mod
 ├── go.sum
 └── README.md
