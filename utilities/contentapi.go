@@ -15,6 +15,7 @@ import (
 
 	"github.com/hashicorp/go-retryablehttp"
 	"golang.org/x/oauth2"
+	"golang.org/x/oauth2/clientcredentials"
 )
 
 
@@ -59,23 +60,17 @@ func GetAccomodationIdByRawFilter(id string, baseURL string) (string, error) {
 
 }
 
-func GetAccessToken(tokenURL, username, password, clientID, clientSecret string) (*oauth2.Token, error) {
+func GetAccessToken(tokenURL, clientID, clientSecret string) (oauth2.TokenSource, error) {
     ctx := context.Background()
 
-    config := &oauth2.Config{
+    config := &clientcredentials.Config{
         ClientID:     clientID,
         ClientSecret: clientSecret,
-        Endpoint: oauth2.Endpoint{
-            TokenURL: tokenURL,
-        },
-    }
+        TokenURL:     tokenURL,
+        }
+    
 
-    token, err := config.PasswordCredentialsToken(ctx, username, password)
-    if err != nil {
-        return nil, fmt.Errorf("failed to get token: %w", err)
-    }
-
-    return token, nil
+	return config.TokenSource(ctx), nil
 }
 
 func PutContentApi(url *url.URL, token string, payload interface{}, id string) (string,error) {
