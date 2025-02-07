@@ -60,17 +60,24 @@ func GetAccomodationIdByRawFilter(id string, baseURL string) (string, error) {
 
 }
 
+// Option 1: Using TokenSource (automatic refresh)
 func GetAccessToken(tokenURL, clientID, clientSecret string) (oauth2.TokenSource, error) {
-    ctx := context.Background()
-
     config := &clientcredentials.Config{
         ClientID:     clientID,
         ClientSecret: clientSecret,
         TokenURL:     tokenURL,
-        }
-    
+    }
 
-	return config.TokenSource(ctx), nil
+    ctx := context.Background()
+    ts := config.TokenSource(ctx)
+
+    // Verify the credentials work by getting initial token
+    _, err := ts.Token()
+    if err != nil {
+        return nil, fmt.Errorf("failed to validate credentials: %w", err)
+    }
+
+    return ts, nil
 }
 
 func PutContentApi(url *url.URL, token string, payload interface{}, id string) (string,error) {
