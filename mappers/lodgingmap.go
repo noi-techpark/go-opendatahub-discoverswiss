@@ -81,6 +81,15 @@ func MapLodgingBusinessToAccommodation(lb models.LodgingBusiness) models.Accommo
 	acco.AccoOverview.CheckOutFrom = lb.CheckoutTimeFrom
 	acco.AccoOverview.CheckOutTo = lb.CheckoutTime
 	acco.AccoOverview.MaxPersons = lb.NumberOfBeds
+
+	for _,photo := range lb.Photo {
+		acco.ImageGallery = append(acco.ImageGallery, models.ImageGalleryItem{
+			ImageUrl: photo.ContentUrl, CopyRight: photo.CopyrightNotice,
+			ImageDesc: models.LanguageMap{DE: photo.Name, EN: photo.Name, IT: photo.Name},
+			ImageName: &photo.Identifier,
+			ImageSource: &photo.DataGovernance.Source.Name,
+		})
+	}
 	
 	acco.AccoType = struct {
 		Id string `json:"Id"`
