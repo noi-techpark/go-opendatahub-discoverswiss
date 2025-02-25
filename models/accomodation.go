@@ -50,6 +50,22 @@ type Accommodation struct {
 		ClosedData bool `json:"ClosedData"`
 		LicenseHolder string `json:"LicenseHolder"`
 	} `json:"LicenseInfo"`
+
+	ImageGallery []ImageGalleryItem `json:"ImageGallery"`
+}
+
+type ImageGalleryItem struct {
+    ImageUrl    string      `json:"ImageUrl"`     // From ContentUrl
+    CopyRight   string      `json:"CopyRight"`    // From CopyrightNotice
+    ImageDesc   LanguageMap `json:"ImageDesc"`    // From Name
+    ImageName   *string     `json:"ImageName,omitempty"`  // From Identifier
+    ImageSource *string     `json:"ImageSource,omitempty"` // From DataGovernance.Source.Name
+}
+
+type LanguageMap struct {
+    DE string `json:"de,omitempty"`
+    EN string `json:"en,omitempty"`
+    IT string `json:"it,omitempty"`
 }
 
 type AccoDetailLanguage struct {
@@ -103,8 +119,25 @@ type LodgingBusiness struct {
 	CheckoutTime     string `json:"checkoutTime"`
 
 	License string `json:"license"`
+
+	Photo []Photo `json:"photo"`
 }
 
+type Photo struct {
+    ContentUrl      string        `json:"contentUrl"`     // Maps to ImageUrl
+    CopyrightNotice string        `json:"copyrightNotice"` // Maps to CopyRight
+    DataGovernance  DataGovernance `json:"dataGovernance"` // For extracting ImageSource
+    Identifier      string        `json:"identifier"`     // Could map to ImageName
+    Name            string        `json:"name"`           // Could map to ImageDesc
+}
+
+type DataGovernance struct {
+    Source Source `json:"source"`
+}
+
+type Source struct {
+    Name string `json:"name"` // Maps to ImageSource
+}
 	
 
 type StarRating struct {
