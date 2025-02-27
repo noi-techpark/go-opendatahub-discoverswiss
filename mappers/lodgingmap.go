@@ -91,11 +91,7 @@ func MapLodgingBusinessToAccommodation(lb models.LodgingBusiness) models.Accommo
 		})
 	}
 	
-	acco.AccoType = struct {
-		Id string `json:"Id"`
-	}{
-		Id: MapAdditionalTypeToAccoTypeId(lb.StarRating.AdditionalType),
-	}
+	acco.AccoType.Id = MapAdditionalTypeToAccoTypeId(lb.StarRating.AdditionalType)
 
 	return acco
 }
