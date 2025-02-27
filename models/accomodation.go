@@ -29,10 +29,8 @@ type Accommodation struct {
 		AltitudeUnitofMeasure string `json:"AltitudeUnitofMeasure"`
 	} `json:"GpsInfo"`
 
-	AccoType struct {
-		Id string `json:"Id"`
-	} `json:"AccoType"`
-
+	AccoTypeId string `json:"AccoTypeId"`
+	
 	AccoOverview struct {
 		TotalRooms   int    `json:"TotalRooms"`
 		SingleRooms  int    `json:"SingleRooms"`

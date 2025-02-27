@@ -91,7 +91,7 @@ func MapLodgingBusinessToAccommodation(lb models.LodgingBusiness) models.Accommo
 		})
 	}
 	
-	acco.AccoType.Id = lb.StarRating.AdditionalType
+	acco.AccoTypeId= lb.StarRating.AdditionalType
 
 	return acco
 }
