@@ -43,7 +43,7 @@ func MapLodgingBusinessToAccommodation(lb models.LodgingBusiness) models.Accommo
 			Gpstype:              "position",
 			Latitude:             lb.Geo.Latitude,
 			Longitude:            lb.Geo.Longitude,
-			Altitude:             0,
+			Altitude:             lb.Geo.Elevation,
 			AltitudeUnitofMeasure: "m",
 		},
 	}

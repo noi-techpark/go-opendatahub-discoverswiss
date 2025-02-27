@@ -98,6 +98,7 @@ type LodgingBusiness struct {
 	} `json:"address"`
 
 	Geo struct {
+		Elevation float64 `json:"elevation"`
 		Latitude  float64 `json:"latitude"`
 		Longitude float64 `json:"longitude"`
 	} `json:"geo"`
