@@ -12,11 +12,26 @@ import (
 )
 
 
-func MapAdditionalTypeToAccoTypeId(additionalType string) string {
-	if strings.EqualFold(additionalType, "Hotel") {
-		return "HotelPension"
-	}
-	return additionalType
+func MapAdditionalTypeToAccoTypeId(additionalType *string) string {
+    // Check if additionalType is nil (null)
+    if additionalType == nil {
+        return "Notdefined"
+    }
+    
+    // Now we can safely dereference and check the value
+    value := *additionalType
+    
+    if strings.EqualFold(value, "Hotel") {
+        return "HotelPension"
+    } else if strings.EqualFold(value, "SwissLodge") {
+        return "SwissLodge"
+    } else if strings.EqualFold(value, "") {
+        return "Notdefined"
+    } else if strings.EqualFold(value, "ServicedApartments") {
+        return "Apartment"
+    }
+    
+    return value
 }
 
 func MapLodgingBusinessToAccommodation(lb models.LodgingBusiness) models.Accommodation {
@@ -91,7 +106,7 @@ func MapLodgingBusinessToAccommodation(lb models.LodgingBusiness) models.Accommo
 		})
 	}
 	
-	acco.AccoTypeId= lb.StarRating.AdditionalType
+	acco.AccoTypeId = MapAdditionalTypeToAccoTypeId(&lb.AdditionalType)
 
 	return acco
 }

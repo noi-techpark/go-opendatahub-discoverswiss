@@ -30,7 +30,7 @@ type Accommodation struct {
 	} `json:"GpsInfo"`
 
 	AccoTypeId string `json:"AccoTypeId"`
-	
+
 	AccoOverview struct {
 		TotalRooms   int    `json:"TotalRooms"`
 		SingleRooms  int    `json:"SingleRooms"`
@@ -120,6 +120,8 @@ type LodgingBusiness struct {
 	License string `json:"license"`
 
 	Photo []Photo `json:"photo"`
+
+	AdditionalType string `json:"additionalType"`
 }
 
 type Photo struct {
