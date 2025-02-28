@@ -6,31 +6,19 @@ package mappers
 
 import (
 	"fmt"
-	"strings"
 
 	"github.com/noi-techpark/go-opendatahub-discoverswiss/models"
 )
 
 
-func MapAdditionalTypeToAccoTypeId(additionalType *string) string {
-    // Check if additionalType is nil (null)
-    if additionalType == nil {
-        return "Notdefined"
-    }
-    
-    // Now we can safely dereference and check the value
-    value := *additionalType
-    
-    if strings.EqualFold(value, "Hotel") {
+func MapAdditionalTypeToAccoTypeId(value string) string {   
+    if value == "Hotel" {
         return "HotelPension"
-    } else if strings.EqualFold(value, "SwissLodge") {
-        return "SwissLodge"
-    } else if strings.EqualFold(value, "") {
+    } else if value == "" {
         return "Notdefined"
-    } else if strings.EqualFold(value, "ServicedApartments") {
+    } else if value == "ServicedApartments" {
         return "Apartment"
-    }
-    
+    }   
     return value
 }
 
@@ -106,7 +94,7 @@ func MapLodgingBusinessToAccommodation(lb models.LodgingBusiness) models.Accommo
 		})
 	}
 	
-	acco.AccoTypeId = MapAdditionalTypeToAccoTypeId(&lb.AdditionalType)
+	acco.AccoTypeId = MapAdditionalTypeToAccoTypeId(lb.AdditionalType)
 
 	return acco
 }
