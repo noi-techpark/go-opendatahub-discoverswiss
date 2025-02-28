@@ -65,18 +65,18 @@ func MapLodgingBusinessToAccommodation(lb models.LodgingBusiness) models.Accommo
 		Phone:       lb.Address.Telephone,
 	}
 
-	var totalRooms, singleRooms, doubleRooms int
+	var totalRooms, singleRooms, doubleRooms *int
 	for _, room := range lb.NumberOfRooms {
-		value := 0
+		var value int
 		fmt.Sscanf(room.Value, "%d", &value)
 
 		switch room.PropertyID {
 		case "total":
-			totalRooms = value
+			totalRooms = &value
 		case "single":
-			singleRooms = value
+			singleRooms = &value
 		case "double":
-			doubleRooms = value
+			doubleRooms = &value
 		}
 	}
 

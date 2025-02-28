@@ -32,9 +32,9 @@ type Accommodation struct {
 	AccoTypeId string `json:"AccoTypeId"`
 
 	AccoOverview struct {
-		TotalRooms   int    `json:"TotalRooms"`
-		SingleRooms  int    `json:"SingleRooms"`
-		DoubleRooms  int    `json:"DoubleRooms"`
+		TotalRooms   *int    `json:"TotalRooms"`
+		SingleRooms  *int    `json:"SingleRooms"`
+		DoubleRooms  *int    `json:"DoubleRooms"`
 		CheckInFrom  string `json:"CheckInFrom"`
 		CheckInTo    string `json:"CheckInTo"`
 		CheckOutFrom string `json:"CheckOutFrom"`
