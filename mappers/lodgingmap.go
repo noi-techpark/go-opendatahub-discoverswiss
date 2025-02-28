@@ -10,7 +10,7 @@ import (
 	"github.com/noi-techpark/go-opendatahub-discoverswiss/models"
 )
 
-
+// try to use regex, since something is not working ....
 func MapAdditionalTypeToAccoTypeId(value string) string {   
     if value == "Hotel" {
         return "HotelPension"
@@ -18,7 +18,11 @@ func MapAdditionalTypeToAccoTypeId(value string) string {
         return "Notdefined"
     } else if value == "ServicedApartments" {
         return "Apartment"
-    }   
+    } else if value == "BedAndBreakfast" {
+		return "BedBreakfast"  
+	} else if value == "Hostel" {
+		return "Youth"
+	}
     return value
 }
 
