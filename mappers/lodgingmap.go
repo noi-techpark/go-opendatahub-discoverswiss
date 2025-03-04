@@ -6,22 +6,27 @@ package mappers
 
 import (
 	"fmt"
+	"strconv"
 
 	"github.com/noi-techpark/go-opendatahub-discoverswiss/models"
 )
 
 // try to use regex, since something is not working ....
 func MapAdditionalTypeToAccoTypeId(value string) string {   
-    if value == "Hotel" {
+    if value == "Hotel" || value == "Pension" {
         return "HotelPension"
     } else if value == "" {
         return "Notdefined"
-    } else if value == "ServicedApartments" {
+    } else if value == "ServicedApartments" || value == "HolidayApartment" || value == "GroupAccommodation" {
         return "Apartment"
-    } else if value == "BedAndBreakfast" {
+    } else if value == "BedAndBreakfast" || value == "HolidayHouse" || value == "GuestHouse" || value == "PrivateRoom" {
 		return "BedBreakfast"  
 	} else if value == "Hostel" {
 		return "Youth"
+	} else if value == "Campground" {
+		return "Camping"
+	} else if value == "Mountainhut" {
+		return "Mountain"
 	}
     return value
 }
@@ -65,24 +70,24 @@ func MapLodgingBusinessToAccommodation(lb models.LodgingBusiness) models.Accommo
 		Phone:       lb.Address.Telephone,
 	}
 
-	var totalRooms, singleRooms, doubleRooms *int
+
 	for _, room := range lb.NumberOfRooms {
-		var value int
-		fmt.Sscanf(room.Value, "%d", &value)
+		value,err := strconv.Atoi(room.Value)
+		if err != nil {
+			fmt.Println("Error converting room value to int")
+			continue
+		}
 
 		switch room.PropertyID {
 		case "total":
-			totalRooms = &value
+			acco.AccoOverview.TotalRooms = &value
 		case "single":
-			singleRooms = &value
+			acco.AccoOverview.SingleRooms = &value
 		case "double":
-			doubleRooms = &value
+			acco.AccoOverview.DoubleRooms = &value
 		}
 	}
 
-	acco.AccoOverview.TotalRooms = totalRooms
-	acco.AccoOverview.SingleRooms = singleRooms
-	acco.AccoOverview.DoubleRooms = doubleRooms
 	acco.AccoOverview.CheckInFrom = lb.CheckinTime
 	acco.AccoOverview.CheckInTo = lb.CheckinTimeTo
 	acco.AccoOverview.CheckOutFrom = lb.CheckoutTimeFrom
