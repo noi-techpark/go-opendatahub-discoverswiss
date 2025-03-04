@@ -1,0 +1,186 @@
+// SPDX-FileCopyrightText: 2024 NOI Techpark <digital@noi.bz.it>
+//
+// SPDX-License-Identifier: CC0-1.0
+{
+    "Id": "auto-generated", 
+    "Self": "auto-generated",            
+    "Tags": null,
+    "HgvId": null,
+    "_Meta": {
+      "Id": "auto-generated",           
+      "Type": "accommodation",
+      "Source": "discoverswiss",
+      "Reduced": false,
+      "LastUpdate": "auto-generated",            
+      "UpdateInfo": {
+        "UpdatedBy": "auto-generated",           
+        "UpdateSource": "api",
+        "UpdateHistory": []              
+      }
+    },
+    "Active": true,
+    "Review": null,
+    "Source": "discoverswiss",
+    "TagIds": null,
+    "GpsInfo": [
+      {
+        "Gpstype": "position",
+        "Altitude": "lb.Geo.Elevation",
+        "Latitude": "lb.Geo.Latitude",
+        "Longitude": "lb.Geo.Longitude",
+        "AltitudeUnitofMeasure": "m"
+      }
+    ],
+    "Gpstype": "position",
+    "HasRoom": null,
+    "Mapping": {
+      "discoverswiss": {
+        "id": "lb.Identifier"
+      }
+    },
+    "ODHTags": [],
+    "SmgTags": null,
+    "AccoType": {
+      "Id": "MapAdditionalTypeToAccoTypeId(lb.AdditionalType)",
+      "Self": "auto-generated"           
+    },
+    "Altitude": "lb.Geo.Elevation",
+    "BadgeIds": null,
+    "BoardIds": null,
+    "Features": null,
+    "Latitude": "lb.Geo.Latitude",
+    "RatePlan": null,
+    "TVMember": null,
+    "ThemeIds": null,
+    "GpsPoints": {
+      "position": {
+        "Gpstype": "position",
+        "Altitude": "lb.Geo.Elevation",
+        "Latitude": "lb.Geo.Latitude",
+        "Longitude": "lb.Geo.Longitude",
+        "AltitudeUnitofMeasure": "m"
+      }
+    },
+    "IsCamping": null,
+    "Longitude": "lb.Geo.Longitude",
+    "OdhActive": false,
+    "Shortname": "lb.Name",
+    "SmgActive": false,
+    "AccoBadges": [],
+    "AccoBoards": [],
+    "AccoDetail": {
+      "de": {
+        "Fax": null,
+        "Vat": null,
+        "Zip": "lb.Address.PostalCode",
+        "City": "lb.Address.AddressLocality",
+        "Name": "lb.Name",
+        "Email": "lb.Address.Email",
+        "Phone": "lb.Address.Telephone",
+        "Mobile": null,
+        "Street": "lb.Address.StreetAddress",
+        "Website": null,
+        "Language": "de",
+        "Lastname": null,
+        "Longdesc": null,
+        "Firstname": null,
+        "Shortdesc": null,
+        "CountryCode": "lb.Address.AddressCountry",
+        "NameAddition": null
+      }
+    },
+    "AccoThemes": [],
+    "AccoTypeId": "MapAdditionalTypeToAccoTypeId(lb.AdditionalType)",
+    "DistrictId": null,
+    "IsBookable": false,
+    "LastChange": "auto-generated",              
+    "TrustYouID": "",
+    "AccoHGVInfo": null,
+    "AccoLTSInfo": null,
+    "FirstImport": "auto-generated",             
+    "HasLanguage": ["de"],
+    "LicenseInfo": {
+      "Author": "",
+      "License": "lb.License",
+      "ClosedData": false,
+      "LicenseHolder": "www.discover.swiss"
+    },
+    "PublishedOn": [],
+    "AccoCategory": null,
+    "AccoOverview": {
+      "CheckInTo": "lb.CheckinTimeTo",
+      "Apartments": null,
+      "CheckOutTo": "lb.CheckoutTime",
+      "MaxPersons": "lb.NumberOfBeds",
+      "TotalRooms": "lb.NumberOfRooms (total)",
+      "CheckInFrom": "lb.CheckinTime",
+      "DoubleRooms": "lb.NumberOfRooms (double)",
+      "SingleRooms": "lb.NumberOfRooms (single)",
+      "TripleRooms": null,
+      "CampingUnits": null,
+      "CheckOutFrom": "lb.CheckoutTimeFrom",
+      "ApartmentBeds": null,
+      "RoomServiceTo": null,
+      "CampingDouches": null,
+      "GarageParkings": null,
+      "QuadrupleRooms": null,
+      "OutdoorParkings": null,
+      "ReceptionOpenTo": null,
+      "RoomServiceFrom": null,
+      "BaggageServiceTo": null,
+      "CampingToilettes": null,
+      "CampingWashrooms": null,
+      "ApartmentRoomSize": null,
+      "ReceptionOpenFrom": null,
+      "BaggageServiceFrom": null,
+      "CampingWashingstands": null
+    },
+    "AccoRoomInfo": null,
+    "DistanceInfo": null,
+    "GastronomyId": null,
+    "HasApartment": false,
+    "ImageGallery": [
+      {
+        "Width": null,
+        "Height": null,
+        "License": null,
+        "ValidTo": null,
+        "ImageUrl": "photo.ContentUrl",
+        "CopyRight": "photo.CopyrightNotice",
+        "ImageDesc": {
+          "DE": "photo.Name",
+          "EN": "photo.Name",
+          "IT": "photo.Name"
+        },
+        "ImageName": "photo.Identifier",
+        "ImageTags": null,
+        "ValidFrom": null,
+        "ImageTitle": {},
+        "ImageSource": "photo.DataGovernance.Source.Name",
+        "IsInGallery": null,
+        "ImageAltText": {},
+        "ListPosition": null,
+        "LicenseHolder": null
+      }
+    ],
+    "IsGastronomy": null,
+    "LocationInfo": null,
+    "MainLanguage": null,
+    "TrustYouScore": null,
+    "TrustYouState": null,
+    "AccoCategoryId": null,
+    "AccoProperties": null,
+    "Representation": null,
+    "TrustYouActive": null,
+    "IndependentData": null,
+    "IsAccommodation": null,
+    "TourismVereinId": null,
+    "TrustYouResults": null,
+    "MssResponseShort": [],
+    "MarketingGroupIds": null,
+    "OperationSchedule": null,
+    "AccoBookingChannel": null,
+    "SpecialFeaturesIds": null,
+    "AccoSpecialFeatures": [],
+    "AltitudeUnitofMeasure": "m"
+  }
