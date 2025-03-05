@@ -31,10 +31,13 @@ type Accommodation struct {
 
 	AccoTypeId string `json:"AccoTypeId"`
 
+	AccoCategoryId string `json:"AccoCategoryId"`
+
 	AccoOverview struct {
 		TotalRooms   *int    `json:"TotalRooms"`
 		SingleRooms  *int    `json:"SingleRooms"`
 		DoubleRooms  *int    `json:"DoubleRooms"`
+		TripleRooms  *int    `json:"TripleRooms"`
 		CheckInFrom  string `json:"CheckInFrom"`
 		CheckInTo    string `json:"CheckInTo"`
 		CheckOutFrom string `json:"CheckOutFrom"`
@@ -143,7 +146,5 @@ type Source struct {
 
 type StarRating struct {
 	RatingValue    float64 `json:"ratingValue"`
-	AdditionalType string  `json:"additionalType"`
-	Name           string  `json:"name"`
 }
 

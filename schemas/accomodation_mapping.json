@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 NOI Techpark <digital@noi.bz.it>
-//
-// SPDX-License-Identifier: CC0-1.0
 {
     "Id": "auto-generated", 
     "Self": "auto-generated",            
@@ -106,7 +103,7 @@
       "LicenseHolder": "www.discover.swiss"
     },
     "PublishedOn": [],
-    "AccoCategory": null,
+    "AccoCategory": "MapStarRatingToCategory(lb.StarRating.RatingValue)",
     "AccoOverview": {
       "CheckInTo": "lb.CheckinTimeTo",
       "Apartments": null,
@@ -116,7 +113,7 @@
       "CheckInFrom": "lb.CheckinTime",
       "DoubleRooms": "lb.NumberOfRooms (double)",
       "SingleRooms": "lb.NumberOfRooms (single)",
-      "TripleRooms": null,
+      "TripleRooms": "lb.NumberOfRooms (triple)",
       "CampingUnits": null,
       "CheckOutFrom": "lb.CheckoutTimeFrom",
       "ApartmentBeds": null,
@@ -168,7 +165,7 @@
     "MainLanguage": null,
     "TrustYouScore": null,
     "TrustYouState": null,
-    "AccoCategoryId": null,
+    "AccoCategoryId": "MapStarRatingToCategory(lb.StarRating.RatingValue)",
     "AccoProperties": null,
     "Representation": null,
     "TrustYouActive": null,

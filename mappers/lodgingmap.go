@@ -11,6 +11,19 @@ import (
 	"github.com/noi-techpark/go-opendatahub-discoverswiss/models"
 )
 
+func MapStarRatingToCategory(starRating float64) string {
+	value := starRating
+	if value >= 1 {
+		if value == float64(int32(value)) {
+			return fmt.Sprintf("%dstars", int32(value))
+		} else {
+		return fmt.Sprintf("%dsstars", int32(value))
+		}
+	} else {
+		return "Not categorized"
+	}
+}
+
 // try to use regex, since something is not working ....
 func MapAdditionalTypeToAccoTypeId(value string) string {   
     if value == "Hotel" || value == "Pension" {
@@ -85,6 +98,8 @@ func MapLodgingBusinessToAccommodation(lb models.LodgingBusiness) models.Accommo
 			acco.AccoOverview.SingleRooms = &value
 		case "double":
 			acco.AccoOverview.DoubleRooms = &value
+		case "triple":
+			acco.AccoOverview.TripleRooms = &value	
 		}
 	}
 
@@ -104,6 +119,8 @@ func MapLodgingBusinessToAccommodation(lb models.LodgingBusiness) models.Accommo
 	}
 	
 	acco.AccoTypeId = MapAdditionalTypeToAccoTypeId(lb.AdditionalType)
+
+	acco.AccoCategoryId = MapStarRatingToCategory(lb.StarRating.RatingValue)
 
 	return acco
 }
