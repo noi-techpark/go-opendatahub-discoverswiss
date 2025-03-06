@@ -7,6 +7,7 @@ package mappers
 import (
 	"fmt"
 	"strconv"
+	"strings"
 
 	"github.com/noi-techpark/go-opendatahub-discoverswiss/models"
 )
@@ -72,7 +73,8 @@ func MapLodgingBusinessToAccommodation(lb models.LodgingBusiness) models.Accommo
 		},
 	}
 
-	acco.PublishedOn = append(acco.PublishedOn, "hotelleriesuisse.ch")//lb.DataGovernance.Provider.Link[0].Url)
+	publishedOn := strings.Replace(lb.DataGovernance.Provider.Link[0].Url, "https://www.", "", 1)
+	acco.PublishedOn = append(acco.PublishedOn, publishedOn)
 
 	acco.HasLanguage = append(acco.HasLanguage, "de" )
 	acco.HasLanguage = append(acco.HasLanguage, "it" )
