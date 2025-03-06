@@ -29,6 +29,8 @@ type Accommodation struct {
 		AltitudeUnitofMeasure string `json:"AltitudeUnitofMeasure"`
 	} `json:"GpsInfo"`
 
+	PublishedOn string `json:"PublishedOn"`
+
 	AccoTypeId string `json:"AccoTypeId"`
 
 	AccoCategoryId string `json:"AccoCategoryId"`
@@ -125,25 +127,38 @@ type LodgingBusiness struct {
 	Photo []Photo `json:"photo"`
 
 	AdditionalType string `json:"additionalType"`
+
+	DataGovernance DataGovernance `json:"dataGovernance"`
 }
 
 type Photo struct {
     ContentUrl      string        `json:"contentUrl"`     // Maps to ImageUrl
     CopyrightNotice string        `json:"copyrightNotice"` // Maps to CopyRight
-    DataGovernance  DataGovernance `json:"dataGovernance"` // For extracting ImageSource
+    DataGovernance  DataGovernanceImages `json:"dataGovernance"` // For extracting ImageSource
     Identifier      string        `json:"identifier"`     // Could map to ImageName
     Name            string        `json:"name"`           // Could map to ImageDesc
 }
 
-type DataGovernance struct {
+type DataGovernanceImages struct {
     Source Source `json:"source"`
 }
 
 type Source struct {
     Name string `json:"name"` // Maps to ImageSource
 }
-	
 
+type DataGovernance struct {
+	Provider Provider `json:"provider"`
+}
+
+type Provider struct {
+	Link []Link `json:"link"`
+}
+
+type Link struct {
+	Url string `json:"url"`
+}
+	
 type StarRating struct {
 	RatingValue    float64 `json:"ratingValue"`
 }

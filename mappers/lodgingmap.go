@@ -56,7 +56,7 @@ func MapLodgingBusinessToAccommodation(lb models.LodgingBusiness) models.Accommo
 	acco.LicenseInfo.License = lb.License	
 	acco.LicenseInfo.ClosedData = false
 	acco.LicenseInfo.LicenseHolder = "www.discover.swiss"
-
+	
 	acco.GpsInfo = []struct {
 		Gpstype              string  `json:"Gpstype"`
 		Latitude             float64 `json:"Latitude"`
@@ -72,6 +72,8 @@ func MapLodgingBusinessToAccommodation(lb models.LodgingBusiness) models.Accommo
 			AltitudeUnitofMeasure: "m",
 		},
 	}
+
+	acco.PublishedOn = lb.DataGovernance.Provider.Link[0].Url
 
 	acco.AccoDetail.Language = models.AccoDetailLanguage{
 		Name:        lb.Name,
