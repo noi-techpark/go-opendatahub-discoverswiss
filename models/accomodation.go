@@ -31,7 +31,7 @@ type Accommodation struct {
 		AltitudeUnitofMeasure string `json:"AltitudeUnitofMeasure"`
 	} `json:"GpsInfo"`
 
-	PublishedOn string `json:"PublishedOn"`
+	PublishedOn []string `json:"PublishedOn"`
 
 	AccoTypeId string `json:"AccoTypeId"`
 

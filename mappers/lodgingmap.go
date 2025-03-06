@@ -72,7 +72,7 @@ func MapLodgingBusinessToAccommodation(lb models.LodgingBusiness) models.Accommo
 		},
 	}
 
-	acco.PublishedOn = lb.DataGovernance.Provider.Link[0].Url
+	acco.PublishedOn = append(acco.PublishedOn, lb.DataGovernance.Provider.Link[0].Url)
 
 	acco.HasLanguage = append(acco.HasLanguage, "de" )
 	acco.HasLanguage = append(acco.HasLanguage, "it" )
