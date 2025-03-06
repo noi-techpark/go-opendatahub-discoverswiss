@@ -83,6 +83,7 @@ func MapLodgingBusinessToAccommodation(lb models.LodgingBusiness) models.Accommo
 	acco.HasLanguage = append(acco.HasLanguage, "en" )
 	
 	acco.AccoDetail.LanguageDe = models.AccoDetailLanguage{
+		Fax: 	   lb.FaxNumber,
 		Name:        lb.Name,
 		Street:      lb.Address.StreetAddress,
 		Zip:         lb.Address.PostalCode,

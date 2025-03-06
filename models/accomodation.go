@@ -76,6 +76,7 @@ type LanguageMap struct {
 }
 
 type AccoDetailLanguage struct {
+	Fax		 	string `json:"Fax"`
 	Name        string `json:"Name"`
 	Street      string `json:"Street"`
 	Zip         string `json:"Zip"`
@@ -103,6 +104,8 @@ type LodgingBusiness struct {
 		Email           string `json:"email"`
 		Telephone       string `json:"telephone"`
 	} `json:"address"`
+
+	FaxNumber string `json:"faxNumber"`
 
 	Geo struct {
 		Elevation float64 `json:"elevation"`
