@@ -18,7 +18,9 @@ type Accommodation struct {
 	} `json:"Mapping"`
 
 	AccoDetail struct {
-		Language AccoDetailLanguage `json:"de"`
+		LanguageDe AccoDetailLanguage `json:"de"`
+		LanguageEn AccoDetailLanguage `json:"en"`
+		LanguageIt AccoDetailLanguage `json:"it"`
 	} `json:"AccoDetail"`
 
 	GpsInfo []struct {
@@ -46,6 +48,8 @@ type Accommodation struct {
 		CheckOutTo   string `json:"CheckOutTo"`
 		MaxPersons   int    `json:"MaxPersons"`
 	} `json:"AccoOverview"`
+
+	HasLanguage []string `json:"HasLanguage"`
 
 	LicenseInfo struct {
 		Author string `json:"Author"`

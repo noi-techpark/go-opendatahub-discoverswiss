@@ -24,7 +24,6 @@ func MapStarRatingToCategory(starRating float64) string {
 	}
 }
 
-// try to use regex, since something is not working ....
 func MapAdditionalTypeToAccoTypeId(value string) string {   
     if value == "Hotel" || value == "Pension" {
         return "HotelPension"
@@ -75,7 +74,11 @@ func MapLodgingBusinessToAccommodation(lb models.LodgingBusiness) models.Accommo
 
 	acco.PublishedOn = lb.DataGovernance.Provider.Link[0].Url
 
-	acco.AccoDetail.Language = models.AccoDetailLanguage{
+	acco.HasLanguage = append(acco.HasLanguage, "de" )
+	acco.HasLanguage = append(acco.HasLanguage, "it" )
+	acco.HasLanguage = append(acco.HasLanguage, "en" )
+	
+	acco.AccoDetail.LanguageDe = models.AccoDetailLanguage{
 		Name:        lb.Name,
 		Street:      lb.Address.StreetAddress,
 		Zip:         lb.Address.PostalCode,
@@ -85,6 +88,8 @@ func MapLodgingBusinessToAccommodation(lb models.LodgingBusiness) models.Accommo
 		Phone:       lb.Address.Telephone,
 	}
 
+	acco.AccoDetail.LanguageEn = acco.AccoDetail.LanguageDe
+	acco.AccoDetail.LanguageIt = acco.AccoDetail.LanguageDe
 
 	for _, room := range lb.NumberOfRooms {
 		value,err := strconv.Atoi(room.Value)
