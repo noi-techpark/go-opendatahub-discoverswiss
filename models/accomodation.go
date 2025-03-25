@@ -59,7 +59,8 @@ type Accommodation struct {
 	} `json:"LicenseInfo"`
 
 	LocationInfo struct {
-		RegionInfo Region `json:"RegionInfo"` 
+		RegionInfo Location `json:"RegionInfo"` 
+		MunicipalityInfo Location `json:"MunicipalityInfo"`
 	} `json:"LocationInfo"`
 
 	ImageGallery []ImageGalleryItem `json:"ImageGallery"`
@@ -90,12 +91,12 @@ type AccoDetailLanguage struct {
 	Phone       string `json:"Phone"`
 }
 
-type Region struct {
+type Location struct {
 	Id  string `json:"Id"`
-	Name RegionNamen `json:"Name"`
+	Name Name `json:"Name"`
 }
 
-type RegionNamen struct {
+type Name struct {
 	De string `json:"de"`
 	En string `json:"en"`
 	It string `json:"it"`

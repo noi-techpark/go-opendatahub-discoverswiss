@@ -82,6 +82,9 @@ func MapLodgingBusinessToAccommodation(lb models.LodgingBusiness) models.Accommo
 	acco.LocationInfo.RegionInfo.Name.De = lb.Address.AddressRegion
 	acco.LocationInfo.RegionInfo.Id = fmt.Sprintf("%s-%s", lb.Address.AddressCountry, lb.Address.AddressRegion)
 
+	acco.LocationInfo.MunicipalityInfo.Name.De = lb.Address.AddressLocality
+	acco.LocationInfo.MunicipalityInfo.Id = fmt.Sprintf("%s-%s", lb.Address.AddressCountry, lb.Address.AddressLocality)
+
 	acco.HasLanguage = append(acco.HasLanguage, "de" )
 	acco.HasLanguage = append(acco.HasLanguage, "it" )
 	acco.HasLanguage = append(acco.HasLanguage, "en" )
