@@ -58,6 +58,10 @@ type Accommodation struct {
 		LicenseHolder string `json:"LicenseHolder"`
 	} `json:"LicenseInfo"`
 
+	LocationInfo struct {
+		RegionInfo Region `json:"RegionInfo"` 
+	} `json:"LocationInfo"`
+
 	ImageGallery []ImageGalleryItem `json:"ImageGallery"`
 }
 
@@ -86,6 +90,16 @@ type AccoDetailLanguage struct {
 	Phone       string `json:"Phone"`
 }
 
+type Region struct {
+	Name RegionNamen `json:"Name"`
+}
+
+type RegionNamen struct {
+	De string `json:"de"`
+	En string `json:"en"`
+	It string `json:"it"`
+	Fr string `json:"fr"`
+}
 
 type DiscoverSwissResponse struct {
 	Count         int               `json:"count"`
@@ -99,6 +113,7 @@ type LodgingBusiness struct {
 	Address struct {
 		AddressCountry  string `json:"addressCountry"`
 		AddressLocality string `json:"addressLocality"`
+		AddressRegion   string `json:"addressRegion"`
 		PostalCode      string `json:"postalCode"`
 		StreetAddress   string `json:"streetAddress"`
 		Email           string `json:"email"`
@@ -136,6 +151,7 @@ type LodgingBusiness struct {
 	AdditionalType string `json:"additionalType"`
 
 	DataGovernance DataGovernance `json:"dataGovernance"`
+	
 }
 
 type Photo struct {

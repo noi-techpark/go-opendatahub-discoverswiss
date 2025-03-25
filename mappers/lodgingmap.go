@@ -7,7 +7,6 @@ package mappers
 import (
 	"fmt"
 	"strconv"
-	"strings"
 
 	"github.com/noi-techpark/go-opendatahub-discoverswiss/models"
 )
@@ -73,10 +72,13 @@ func MapLodgingBusinessToAccommodation(lb models.LodgingBusiness) models.Accommo
 		},
 	}
 
-	publishedOn := strings.Replace(lb.DataGovernance.Provider.Link[0].Url, "https://www.", "", 1)
-	publishedOn = strings.Replace(publishedOn, "/de", "", 1)
-	publishedOn = strings.Replace(publishedOn, "/", "", 1)
-	acco.PublishedOn = append(acco.PublishedOn, publishedOn)
+	//apparently the publishedOn does not reflects the provider 
+	// publishedOn := strings.Replace(lb.DataGovernance.Provider.Link[0].Url, "https://www.", "", 1)
+	// publishedOn = strings.Replace(publishedOn, "/de", "", 1)
+	// publishedOn = strings.Replace(publishedOn, "/", "", 1)
+	// acco.PublishedOn = append(acco.PublishedOn, publishedOn)
+
+	acco.LocationInfo.RegionInfo.Name.De = lb.Address.AddressRegion
 
 	acco.HasLanguage = append(acco.HasLanguage, "de" )
 	acco.HasLanguage = append(acco.HasLanguage, "it" )
