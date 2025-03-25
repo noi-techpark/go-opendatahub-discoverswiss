@@ -91,6 +91,7 @@ type AccoDetailLanguage struct {
 }
 
 type Region struct {
+	Id  string `json:"Id"`
 	Name RegionNamen `json:"Name"`
 }
 

@@ -78,7 +78,9 @@ func MapLodgingBusinessToAccommodation(lb models.LodgingBusiness) models.Accommo
 	// publishedOn = strings.Replace(publishedOn, "/", "", 1)
 	// acco.PublishedOn = append(acco.PublishedOn, publishedOn)
 
+	//NotWorking
 	acco.LocationInfo.RegionInfo.Name.De = lb.Address.AddressRegion
+	acco.LocationInfo.RegionInfo.Id = fmt.Sprintf("%s-%s", lb.Address.AddressCountry, lb.Address.AddressRegion)
 
 	acco.HasLanguage = append(acco.HasLanguage, "de" )
 	acco.HasLanguage = append(acco.HasLanguage, "it" )
