@@ -87,11 +87,13 @@ func MapLodgingBusinessToAccommodation(lb models.LodgingBusiness) models.Accommo
 	acco.LocationInfo.MunicipalityInfo.Name.De = lb.Address.AddressLocality
 	acco.LocationInfo.MunicipalityInfo.Name.It = lb.Address.AddressLocality
 	acco.LocationInfo.MunicipalityInfo.Name.En = lb.Address.AddressLocality
+	acco.LocationInfo.MunicipalityInfo.Name.Fr = lb.Address.AddressLocality
 	acco.LocationInfo.MunicipalityInfo.Id = fmt.Sprintf("%s-%s", lb.Address.AddressCountry, lb.Address.AddressLocality)
 
 	acco.HasLanguage = append(acco.HasLanguage, "de" )
 	acco.HasLanguage = append(acco.HasLanguage, "it" )
 	acco.HasLanguage = append(acco.HasLanguage, "en" )
+	acco.HasLanguage = append(acco.HasLanguage, "fr" )
 	
 	acco.AccoDetail.LanguageDe = models.AccoDetailLanguage{
 		Fax: 	   lb.FaxNumber,
@@ -135,7 +137,7 @@ func MapLodgingBusinessToAccommodation(lb models.LodgingBusiness) models.Accommo
 	for _,photo := range lb.Photo {
 		acco.ImageGallery = append(acco.ImageGallery, models.ImageGalleryItem{
 			ImageUrl: photo.ContentUrl, CopyRight: photo.CopyrightNotice,
-			ImageDesc: models.LanguageMap{DE: photo.Name, EN: photo.Name, IT: photo.Name},
+			ImageDesc: models.LanguageMap{DE: photo.Name, EN: photo.Name, IT: photo.Name, FR: photo.Name},
 			ImageName: &photo.Identifier,
 			ImageSource: &photo.DataGovernance.Source.Name,
 		})

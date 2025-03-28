@@ -78,6 +78,7 @@ type LanguageMap struct {
     DE string `json:"de,omitempty"`
     EN string `json:"en,omitempty"`
     IT string `json:"it,omitempty"`
+	FR string `json:"fr,omitempty"`
 }
 
 type AccoDetailLanguage struct {
